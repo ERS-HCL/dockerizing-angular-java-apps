@@ -10,7 +10,7 @@ services:
             - ./dist:/usr/local/apache2/htdocs/
         user: root 
         networks:
-            - rochenet
+            - samplenet
         links:
           - orderapi:orderapi    
     orderapi:
@@ -23,7 +23,7 @@ services:
             - orderdb
             - rabbitmq
         networks:
-            - rochenet
+            - samplenet
         links:
           - orderdb:orderdb
 
@@ -45,7 +45,7 @@ services:
             timeout: 5s
             retries: 5
         networks:
-            - rochenet
+            - samplenet
 
     rabbitmq:
         image: 'rabbitmq:3.5.3-management'
@@ -58,7 +58,7 @@ services:
 
 
 networks:
-   rochenet:
+   samplenet:
 volumes:
     postgresdb: {}
 
